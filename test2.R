@@ -139,11 +139,24 @@ plot(london_crime_modified$Region, main='Crimes By Region',
 # -------------Q8-------------
 # Critique and discuss the major crime category of both regions
 highest_crime_dataset <- subset(london_crime_modified, Region == "Central" )
+# highest crime region Theft and Handling is the highest catetory of crime and 
+# Sexual Offences is the lowest catetory of crime 
+summary(highest_crime_dataset$MajorCategory)
 # lowest crime region
 lowest_crime_dataset <- subset(london_crime_modified, Region == "South" )
+# lowest crime region Theft and Handling is the highest catetory of crime 
+# Sexual Offences is the lowest catetory of crime as crime
+# highest crime region has almost doubled crimes in both categories of that the lowest region
+summary(lowest_crime_dataset$MajorCategory)
 # -------------Q9-------------
+head(highest_crime_dataset,3)
 summary(highest_crime_dataset)
-plot(summary(highest_crime_dataset))
+highest_col < c()
+lines(highest_crime_dataset$Region, highest_crime_dataset$Value, 
+      col = "red", main = "crimes by region")
+lines(lowest_crime_dataset$Region, highest_crime_dataset$Value, 
+      col = "blue")
+axis(1, at = 1:5, label = c("20 ml","40 ml","60 ml","80 ml","100 ml"))
 
 # -------------Q10-------------
 # write london_crime to csv file

@@ -149,14 +149,17 @@ lowest_crime_dataset <- subset(london_crime_modified, Region == "South" )
 # highest crime region has almost doubled crimes in both categories of that the lowest region
 summary(lowest_crime_dataset$MajorCategory)
 # -------------Q9-------------
-head(highest_crime_dataset,3)
-summary(highest_crime_dataset)
-highest_col < c()
-lines(highest_crime_dataset$Region, highest_crime_dataset$Value, 
-      col = "red", main = "crimes by region")
-lines(lowest_crime_dataset$Region, highest_crime_dataset$Value, 
-      col = "blue")
-axis(1, at = 1:5, label = c("20 ml","40 ml","60 ml","80 ml","100 ml"))
+# I don't understand the meaning of this question
+# Using information from the summary() function, 
+# plot the content of both of your data frames side by side. 
+# highest crim summary data as a dataframe
+highest_data <- as.data.frame(summary(highest_crime_dataset$MajorCategory))
+# add region column
+highest_data$Region <- rep('Highest Crim Region - Central')
+# lowest crim summary data as a dataframe
+lowest_data <- as.data.frame(summary(lowest_crime_dataset$MajorCategory))
+lowest_data$Region <- rep('Lowest Crim Region - South')
+
 
 # -------------Q10-------------
 # write london_crime to csv file
